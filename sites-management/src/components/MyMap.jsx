@@ -19,7 +19,7 @@ import CloseIcon from "@mui/icons-material/Close";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import SuperClusterAlgorithm from "../utils/superClusterAlgorithm";
 
-const GOOGLE_MAPS_API_KEY = "AIzaSyBdniIPLaQMFp5fmHKDxdp47iTyTrfz8ww";
+const GOOGLE_MAPS_API_KEY = "";
 const MAP_ID = "DEMO_MAP_ID";
 
 // Kenya bounds
