@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.elewa.assignment.mapper.NetworkMapper">
+    <resultMap id="NetworkResultMap" type="com.elewa.assignment.model.Network">
+        <id property="id" column="id"/>
+        <result property="network_name" column="network_name"/>
+        <result property="network_equip" column="network_equip"/>
+    </resultMap>
+
+    <select id="findAll" resultMap="NetworkResultMap">
+        SELECT * FROM tb_network
+    </select>
+
+    <select id="findById" resultMap="NetworkResultMap">
+        SELECT * FROM tb_network WHERE id = #{id}
+    </select>
+
+    <select id="findIdByName" resultType="int">
+        SELECT id FROM tb_network WHERE network_name = #{network_name}
+    </select>
+
+    <update id="updateNet">
+        UPDATE tb_network SET network_name = #{network_name}, network_equip = #{network_equip}
+        WHERE id = #{id}
+    </update>
+
+    <insert id="saveNetwork" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO tb_network (network_name, network_equip)
+        VALUES (#{network_name}, #{network_equip})
+    </insert>
+
+    <delete id="deleteNetwork">
+        DELETE FROM tb_network WHERE id = #{id}
+    </delete>
+
+</mapper>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.elewa.assignment.mapper.PowerMapper">
+    <resultMap id="PowerResultMap" type="com.elewa.assignment.model.Power">
+        <id property="id" column="id"/>
+        <result property="main_power" column="main_power"/>
+        <result property="backup_power" column="backup_power"/>
+    </resultMap>
+
+    <select id="findAll" resultMap="PowerResultMap">
+        SELECT * FROM tb_power
+    </select>
+
+    <select id="findById" resultMap="PowerResultMap">
+        SELECT * FROM tb_power WHERE id = #{id}
+    </select>
+
+    <select id="findIdByName" resultType="int">
+        SELECT id FROM tb_power WHERE main_power = #{main_power}
+    </select>
+
+    <update id="updatePower">
+        UPDATE tb_power SET main_power = #{main_power}, backup_power = #{backup_power}
+        WHERE id = #{id}
+    </update>
+
+    <insert id="savePower" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO tb_power (main_power, backup_power)
+        VALUES (#{main_power}, #{backup_power})
+    </insert>
+
+    <delete id="deletePower">
+        DELETE FROM tb_power WHERE id = #{id}
+    </delete>
+
+
+</mapper>

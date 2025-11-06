@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.elewa.assignment.mapper.TownMapper">
+    <resultMap id="TownResultMap" type="com.elewa.assignment.model.Town">
+        <id property="id" column="id"/>
+        <result property="town_name" column="town_name"/>
+        <result property="region_id" column="region_id"/>
+    </resultMap>
+
+    <select id="findAll" resultMap="TownResultMap">
+        SELECT tb_town.id, tb_town.town_name, tbr.region_name AS region_id
+        FROM tb_town
+        LEFT JOIN tb_region tbr ON tb_town.region_id = tbr.id;
+    </select>
+
+    <select id="findById" resultMap="TownResultMap">
+        SELECT * FROM tb_town WHERE id = #{id}
+    </select>
+
+    <select id="findIdByName" resultType="int">
+        SELECT id FROM tb_town WHERE town_name = #{town_name}
+    </select>
+
+
+    <select id="findByRegionId" resultMap="TownResultMap">
+        SELECT tb_town.id, tb_town.town_name, tbr.region_name AS region_id
+        FROM tb_town
+        LEFT JOIN tb_region tbr ON tb_town.region_id = tbr.id
+    </select>
+
+</mapper>

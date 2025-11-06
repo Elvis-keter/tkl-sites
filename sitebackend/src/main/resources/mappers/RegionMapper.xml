@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.elewa.assignment.mapper.RegionMapper">
+    <resultMap id="RegionResultMap" type="com.elewa.assignment.model.Region">
+        <id property="id" column="id"/>
+        <result property="region_name" column="region_name"/>
+    </resultMap>
+
+    <select id="findAll" resultMap="RegionResultMap">
+        SELECT * FROM tb_region
+    </select>
+
+    <select id="findById" resultMap="RegionResultMap">
+        SELECT * FROM tb_region WHERE id = #{id}
+    </select>
+
+    <select id="findIdByName" resultType="int">
+        SELECT id FROM tb_region WHERE region_name = #{region_name}
+    </select>
+
+
+
+</mapper>

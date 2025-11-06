@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.elewa.assignment.mapper.SiteMapper">
+    <resultMap id="SiteResultMap" type="com.elewa.assignment.model.Site">
+        <id property="id" column="id"/>
+        <result property="site_id" column="site_id"/>
+        <result property="property_id" column="property_id"/>
+        <result property="description" column="description"/>
+        <result property="town_id" column="town_id"/>
+        <result property="region_id" column="region_id"/>
+        <result property="status_id" column="status_id"/>
+        <result property="network_id" column="network_id"/>
+        <result property="network_equip" column="network_equip"/>
+        <result property="power_id" column="power_id"/>
+        <result property="latitude" column="latitude"/>
+        <result property="longitude" column="longitude"/>
+    </resultMap>
+
+    <select id="findAll" resultMap="SiteResultMap">
+        SELECT
+            s.id,
+            s.site_id,
+            p.asset_description AS property_id,
+            s.description,
+            t.town_name AS town_id,
+            r.region_name AS region_id,
+            pr.title AS status_id,
+            n.network_name AS network_id,
+            po.main_power AS power_id,
+            s.latitude,
+            s.longitude
+        FROM
+            tb_site s
+                LEFT JOIN
+            tb_properties p ON s.property_id = p.id
+                LEFT JOIN
+            tb_town t ON s.town_id = t.id
+                LEFT JOIN
+            tb_region r ON s.region_id = r.id
+                LEFT JOIN
+            tb_network n ON s.network_id = n.id
+                LEFT JOIN
+            tb_power po ON s.power_id = po.id
+                LEFT JOIN
+            tb_status st ON s.status_id = st.id
+                LEFT JOIN
+            tb_properties pr ON st.property_id = pr.id
+    </select>
+
+    <select id="findById" resultMap="SiteResultMap">
+        SELECT * FROM tb_site
+        WHERE id = #{id}
+    </select>
+
+    <select id="countSites">
+        SELECT COUNT(*) FROM tb_site
+    </select>
+
+    <update id="updateSite">
+        UPDATE tb_site SET site_id = #{site_id}, property_id = #{property_id},
+                           description = #{description}, town_id = #{town_id},
+                           region_id = #{region_id}, status_id = #{status_id},
+                           network_id = #{network_id}, power_id = #{power_id},
+                           latitude = #{latitude}, longitude = #{longitude}
+        WHERE id = #{id}
+    </update>
+
+    <insert id="saveSite" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO tb_site (site_id, property_id, description, town_id,region_id,status_id,
+                             network_id, power_id, latitude, longitude)
+        VALUES (#{site_id}, #{property_id}, #{description}, #{town_id}, #{region_id},
+                #{status_id}, #{network_id}, #{power_id}, #{latitude}, #{longitude})
+    </insert>
+
+    <delete id="deleteSite">
+        DELETE FROM tb_site WHERE id = #{id}
+    </delete>
+</mapper>

@@ -1,0 +1,572 @@
+{
+	"info": {
+		"_postman_id": "7c2f1ef3-d2d3-43fd-afc2-206082689b7f",
+		"name": "Sites",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "28128630"
+	},
+	"item": [
+		{
+			"name": "View sites",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/v1/sites",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"sites"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "View Networks",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/v1/networks",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"networks"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "View Properties",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/v1/properties",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"properties"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "View Regions",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/v1/regions",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"regions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "View Towns",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/v1/towns",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"towns"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "View Power",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/v1/power",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"power"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "View Status",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/v1/status",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"status"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Site",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"site_id\": \"028NB\",\r\n    \"property_id\": \"Muthangari Telephone Exchange\",\r\n    \"description\": \"Telephone Exchange\",\r\n    \"town_id\": \"Dololo\",\r\n    \"region_id\": \"Kwale\",\r\n    \"status_id\": \"L.R.No. 3734/1402\",\r\n    \"network_id\": \"Edge Data Center\",\r\n    \"power_id\": \"Solar power\",\r\n    \"latitude\": \"0.3167\",\r\n    \"longitude\": \"37.9333\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/v1/sites/new",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"sites",
+						"new"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Network",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"network_name\": \"Edge Data Center\",\r\n    \"network_equip\": \"2G & 3G\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/v1/networks/new",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"networks",
+						"new"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Property",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"L.R.No. 3734/1402\",\r\n    \"asset_description\": \"Muthangari Telephone Exchange\",\r\n    \"plot_size\": 0.380,\r\n    \"bua\": 2731,\r\n    \"fair_value\": 82600,\r\n    \"land\": 8260,\r\n    \"improvements\": 0,\r\n    \"total_value\": 70633\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/v1/properties/new",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"properties",
+						"new"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Power",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"main_power\":\"Solar\",\r\n    \"backup_power\":\"Diesel Gen\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/v1/power/new",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"power",
+						"new"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Status",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"enroachment_status\": \"\",\r\n    \"critical_to_enterprise\": \"\",\r\n    \"status_description\": \"Fully occupied by TKL & Tenant\",\r\n    \"govt_equp\": \"\",\r\n    \"strategic_to_tkl\": \"\",\r\n    \"tkl_shop\": \"Y\",\r\n    \"atc_tower\": \"Y\",\r\n    \"charged_to_bank\": \"Y\",\r\n    \"on_sfc_deed\": \"\",\r\n    \"requested_by_sfc\": \"Y\",\r\n    \"on_atc_court\": \"Y\",\r\n    \"on_atc_deed\": \"\",\r\n    \"wholesale\": \"Y\",\r\n    \"ownership_docs\": \"T\",\r\n    \"property_id\": \"L.R.No. 3734/1402\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/v1/status/new",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"status",
+						"new"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Site",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"site_id\": \"101MS\",\r\n    \"property_id\": \"Keter Exchange\",\r\n    \"description\": \"Telephone Exchange\",\r\n    \"town_id\": \"Bamburi\",\r\n    \"region_id\": \"Kilifi\",\r\n    \"status_id\": \"Plot No. 386/25\",\r\n    \"network_id\": \"Normal Site\",\r\n    \"power_id\": \"Kplc\",\r\n    \"latitude\": \"0.2167\",\r\n    \"longitude\": \"37.9333\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/v1/sites/update/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"sites",
+						"update",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Network",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"network_name\": \"Site\",\r\n    \"network_equip\": \"3G\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/v1/networks/update/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"networks",
+						"update",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Property",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"Plot No. 386/25\",\r\n    \"asset_description\": \"Keter Exchange\",\r\n    \"coordinates\": \"0°13'53.52\\\"N, 37°56'28.64\\\"E\",\r\n    \"plot_size\": 0.25,\r\n    \"bua\": 803.0,\r\n    \"fair_value\": 1850,\r\n    \"land\": 14600,\r\n    \"improvements\": 3900,\r\n    \"total_value\": 70633\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/v1/properties/update/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"properties",
+						"update",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Power",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"main_power\":\"Solar power\",\r\n    \"backup_power\":\"Diesel Gen\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/v1/power/update/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"power",
+						"update",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Status",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"enroachment_status\": \"Any character\",\r\n    \"critical_to_enterprise\": \"V\",\r\n    \"status_description\": 0,\r\n    \"govt_equp\": 0,\r\n    \"strategic_to_tkl\": 0,\r\n    \"tkl_shop\": 0,\r\n    \"atc_tower\": 1,\r\n    \"charged_to_bank\": 0,\r\n    \"on_sfc_deed\": 0,\r\n    \"requested_by_sfc\": 0,\r\n    \"on_atc_court\": 0,\r\n    \"on_atc_deed\": 0,\r\n    \"wholesale\": 1,\r\n    \"ownership_docs\": \"N\",\r\n    \"property_id\": \"L.R.No. 3734/1402\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/v1/status/update/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"status",
+						"update",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Site",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/v1/sites/4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"sites",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Network",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/v1/networks/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"networks",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Property",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/v1/properties/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"properties",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Power",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/v1/power/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"power",
+						"2"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

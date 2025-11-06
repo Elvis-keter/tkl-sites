@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.elewa.assignment.mapper.PropertiesMapper">
+    <resultMap id="PropertiesResultMap" type="com.elewa.assignment.model.Properties">
+        <id property="id" column="id"/>
+        <result property="title" column="title"/>
+        <result property="asset_description" column="asset_description"/>
+        <result property="coordinates" column="coordinates"/>
+        <result property="bua" column="bua"/>
+        <result property="fair_value" column="fair_value"/>
+        <result property="land" column="land"/>
+        <result property="improvements" column="improvements"/>
+        <result property="total_value" column="total_value"/>
+    </resultMap>
+
+    <select id="findAll" resultMap="PropertiesResultMap">
+        SELECT * FROM tb_properties
+    </select>
+
+    <select id="findById" resultMap="PropertiesResultMap">
+        SELECT * FROM tb_properties WHERE id = #{id}
+    </select>
+
+    <select id="findIdByName" resultType="int">
+        SELECT id FROM tb_properties WHERE asset_description = #{asset_description}
+    </select>
+
+    <select id="findIdByTitle" resultType="int">
+        SELECT id FROM tb_properties WHERE title = #{title}
+    </select>
+
+    <update id="updateProperties">
+        UPDATE tb_properties
+        SET title = #{title}, asset_description = #{asset_description},
+            plot_size = #{plot_size}, bua = #{bua}, fair_value = #{fair_value},
+            land = #{land}, improvements = #{improvements}, total_value = #{total_value}
+        WHERE id = #{id}
+    </update>
+
+    <insert id="saveProperties" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO tb_properties
+            (title, asset_description, plot_size, bua, fair_value,
+             land, improvements, total_value)
+        VALUES (#{title}, #{asset_description}, #{plot_size}, #{bua}, #{fair_value}, #{land},
+               #{improvements}, #{total_value})
+    </insert>
+
+    <delete id="deleteProperties">
+        DELETE FROM tb_properties WHERE id = #{id}
+    </delete>
+
+</mapper>

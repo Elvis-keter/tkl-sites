@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.elewa.assignment.mapper.StatusMapper">
+    <resultMap id="StatusResultMap" type="com.elewa.assignment.model.Status">
+        <id property="id" column="id"/>
+        <result property="enroachment_status" column="enroachment_status"/>
+        <result property="critical_to_enterprise" column="critical_to_enterprise"/>
+        <result property="status_description" column="status_description"/>
+        <result property="govt_equp" column="govt_equp"/>
+        <result property="strategic_to_tkl" column="strategic_to_tkl"/>
+        <result property="tkl_shop" column="tkl_shop"/>
+        <result property="atc_tower" column="atc_tower"/>
+        <result property="charged_to_bank" column="charged_to_bank"/>
+        <result property="on_sfc_deed" column="on_sfc_deed"/>
+        <result property="requested_by_sfc" column="requested_by_sfc"/>
+        <result property="on_atc_court" column="on_atc_court"/>
+        <result property="on_atc_deed" column="on_atc_deed"/>
+        <result property="wholesale" column="wholesale"/>
+        <result property="ownership_docs" column="ownership_docs"/>
+        <result property="property_id" column="property_id"/>
+    </resultMap>
+
+    <select id="findAll" resultMap="StatusResultMap">
+        SELECT tb_status.id,tb_status.enroachment_status,
+               tb_status.critical_to_enterprise,tb_status.status_description,
+               tb_status.govt_equp, tb_status.strategic_to_tkl,tb_status.tkl_shop,
+               tb_status.atc_tower,tb_status.charged_to_bank,tb_status.on_sfc_deed, tb_status.requested_by_sfc,
+               tb_status.on_atc_court, tb_status.on_atc_deed,tb_status.wholesale,tb_status.ownership_docs,
+               tbp.title AS property_id
+        FROM tb_status
+                 LEFT JOIN tb_properties tbp ON tb_status.property_id = tbp.id
+    </select>
+
+    <select id="findById" resultMap="StatusResultMap">
+        SELECT * FROM tb_status WHERE id = #{id}
+    </select>
+
+    <select id="findIdByName" resultType="int">
+        SELECT tb_status.id,tb_status.enroachment_status,
+               tb_status.critical_to_enterprise,tb_status.status_description,
+               tb_status.govt_equp, tb_status.strategic_to_tkl,tb_status.tkl_shop,
+               tb_status.atc_tower,tb_status.charged_to_bank,tb_status.on_sfc_deed, tb_status.requested_by_sfc,
+               tb_status.on_atc_court, tb_status.on_atc_deed,tb_status.wholesale,tb_status.ownership_docs,
+               tbp.title AS property_id
+        FROM tb_status
+                 LEFT JOIN tb_properties tbp ON tb_status.id = tbp.id
+        WHERE title = #{title}
+--         LIMIT 1
+    </select>
+
+    <update id="updateStatus">
+        UPDATE tb_status
+        SET enroachment_status = #{enroachment_status}, critical_to_enterprise = #{critical_to_enterprise},
+            status_description = #{status_description}, govt_equp = #{govt_equp},
+            strategic_to_tkl = #{strategic_to_tkl}, tkl_shop = #{tkl_shop},atc_tower = #{atc_tower},
+            charged_to_bank = #{charged_to_bank}, on_sfc_deed = #{on_sfc_deed},
+            requested_by_sfc = #{requested_by_sfc}, on_atc_court = #{on_atc_court},
+            on_atc_deed = #{on_atc_deed}, wholesale = #{wholesale}, ownership_docs = #{ownership_docs},
+            property_id = #{property_id}
+        WHERE id = #{id}
+    </update>
+
+    <insert id="saveStatus" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO tb_status (enroachment_status, critical_to_enterprise, status_description,
+                                govt_equp, strategic_to_tkl,tkl_shop, atc_tower, charged_to_bank,
+                                on_sfc_deed, requested_by_sfc, on_atc_court, on_atc_deed,
+                                wholesale, ownership_docs, property_id)
+        VALUES (#{enroachment_status}, #{critical_to_enterprise}, #{status_description},
+                #{govt_equp}, #{strategic_to_tkl},#{tkl_shop}, #{atc_tower}, #{charged_to_bank},
+                #{on_sfc_deed}, #{requested_by_sfc}, #{on_atc_court}, #{on_atc_deed},
+                #{wholesale}, #{ownership_docs}, #{property_id})
+    </insert>
+
+    <delete id="deleteStatus">
+        DELETE FROM tb_status WHERE id = #{id}
+    </delete>
+
+</mapper>
