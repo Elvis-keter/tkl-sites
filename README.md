@@ -14,3 +14,5 @@ If you are developing a production application, we recommend using TypeScript an
 ## Running the client side framework
 Install using npm install, and to run the Vite application use npm run dev
 
+## Request and responses 
+See the postman collection for testing out APIs
